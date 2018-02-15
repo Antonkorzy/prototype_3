@@ -1,0 +1,81 @@
+﻿@model IEnumerable<prototype_2.acts>
+
+@{
+    ViewBag.Title = "Список актов";
+}
+
+<h2>Список актов</h2>
+
+<p>
+    @Html.ActionLink("Добавить новый", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Номер акта")
+        </th>
+        <th>
+            @Html.DisplayName("Дата")
+        </th>
+        <th>
+            @Html.DisplayName("Тип/название")
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.geo_location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.doc)
+        </th>*@
+        @*<th>
+            @Html.DisplayName("Дополнительная информация")
+        </th>*@
+        <th>
+            @Html.DisplayName("Ответственное лицо")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.geo_location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.photo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.doc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.extra_info)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.users.name)
+        </td>
+        <td>
+            @*@Html.ActionLink("Внести изменения", "Edit", new { id=item.act_id }) |*@
+            @Html.ActionLink("Подробнее", "Details", new { id=item.act_id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.act_id })
+        </td>
+    </tr>
+}
+
+</table>

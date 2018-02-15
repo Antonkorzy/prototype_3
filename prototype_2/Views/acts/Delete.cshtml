@@ -1,0 +1,95 @@
+﻿@model prototype_2.acts
+
+@{
+    ViewBag.Title = "Удаление акта";
+}
+
+<h2>Удаление информации об акте</h2>
+
+<h3>Вы действительно хотите продолжить удаление?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Номер акта")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.number)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Дата")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Тип/название")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.geo_location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.geo_location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.doc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.doc)
+        </dd>*@
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.extra_info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extra_info)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayName("Контактное лицо")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.users.name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Назад к списку", "Index")
+        </div>
+    }
+</div>

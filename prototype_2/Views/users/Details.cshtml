@@ -1,0 +1,57 @@
+﻿@model prototype_2.users
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Информация о контактном лице</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Имя")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Фамилия")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Логин")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.login)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayName("Дополнительная информация")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extra)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Внести изменения", "Edit", new { id = Model.user_id }) |
+    @Html.ActionLink("Назад к списку", "Index")
+</p>

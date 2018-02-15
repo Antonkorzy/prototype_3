@@ -1,0 +1,64 @@
+﻿@model prototype_2.users
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление данных о контактном лице</h2>
+
+<h4>Вы действительно хотите продолжить удаление?</h4>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Имя")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Фамилия")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Логин")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.login)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayName("Дополнительная информация")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.extra)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Назад к списку", "Index") |
+            <input type="submit" value="Удалить" class="btn btn-default" /> 
+            
+        </div>
+    }
+</div>

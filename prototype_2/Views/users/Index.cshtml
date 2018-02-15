@@ -1,0 +1,51 @@
+﻿@model IEnumerable<prototype_2.users>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Список ответственных лиц</h2>
+
+<p>
+    @Html.ActionLink("Создать запись", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Имя")
+        </th>
+        <th>
+            @Html.DisplayName("Фамилия")
+        </th>
+        <th>
+            @Html.DisplayName("Логин")
+        </th>
+        <th>
+            @Html.DisplayName("Дополнительная информация")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.login)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.extra)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.user_id }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.user_id }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.user_id })
+        </td>
+    </tr>
+}
+
+</table>
